@@ -1,14 +1,41 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Alcometer
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>Weight</ion-label>
+      <ion-input type="number" name="weight" [(ngModel)]="weight"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select [(ngModel)]="gender">
+        <ion-select-option *ngFor="let value of genders">{{value}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Time</ion-label>
+      <ion-select [(ngModel)]="timeamount">
+        <ion-select-option *ngFor="let value of times">{{value}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Bottles</ion-label>
+      <ion-select [(ngModel)]="bottleamount">
+        <ion-select-option *ngFor="let value of bottles">{{value}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Promilles</ion-label>
+      <ion-input name="promilles" value="{{ promilles | number : '1.2-2'}}" readonly ></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <ion-button expand="block"(click)="calculate()">Calculate</ion-button>
   </div>
 </ion-content>
